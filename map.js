@@ -117,7 +117,7 @@ function genMap(arr) {
         }
     };
     
-    distance = distance.toPrecision(1);
+    distance = Math.round(distance * 10) / 10;
     document.getElementById('distance').innerHTML = distance;
 
     var onResult = function(result) {
