@@ -10,7 +10,7 @@ function getData() {
     }
     
     var xmlhttp = new XMLHttpRequest();
-    var url = "http://analog-fastness-221121.appspot.com/" + page;
+    var url = "https://analog-fastness-221121.appspot.com/" + page;
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
