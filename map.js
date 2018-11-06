@@ -86,7 +86,8 @@ function genMap(arr) {
     
     var platform = new H.service.Platform({
         'app_id': 'qsjcw6LHc3cHp6JS1KOz',
-        'app_code': '82KosHvdwFKePLOYSUC1xA'
+        'app_code': '82KosHvdwFKePLOYSUC1xA',
+        'useHTTPS': true
     });
     
     var targetElement = document.getElementById('mapContainer');
