@@ -40,8 +40,8 @@ function createNav(page) {
         document.getElementById("next").style.display = "none";
     }
     
-    document.getElementById("next").innerHTML = "<a class='nav-link' href='/?=" + next + "'>Next →</a>";
-    document.getElementById("prev").innerHTML = "<a class='nav-link' href='./?=" + prev + "'>← Prev</a>";
+    document.getElementById("next").innerHTML = "<a class='nav-link' href='./?=" + next + "'><span class='nav-text'>Next</span> →</a>";
+    document.getElementById("prev").innerHTML = "<a class='nav-link' href='./?=" + prev + "'>← <span class='nav-text'>Prev</span></a>";
     console.log(prev)
 }
 

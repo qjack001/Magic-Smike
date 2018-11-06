@@ -115,6 +115,16 @@ body
     color: #000;
 }
 
+.nav-text
+{
+    border: 2px solid transparent;
+}
+
+.nav-text:hover
+{
+    border-color: #000;
+}
+
 @media only screen and (max-width: 950px)
 {
     #stats
