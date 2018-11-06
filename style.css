@@ -1,14 +1,12 @@
 @font-face
 {
     font-family: "Maple";
-    font-weight: normal;
     src: url("./Fonts/Maple Medium.otf");
 }
 
 @font-face
 {
-    font-family: "Maple";
-    font-weight: bold;
+    font-family: "Maple-bold";
     src: url("./Fonts/Maple Black.otf");
 }
 
@@ -78,7 +76,7 @@ body
 .stat-value
 {
     font-size: 4rem;
-    font-weight: bold;
+    font-family: "Maple-bold";
     margin: 30px;
 }
 
@@ -86,15 +84,16 @@ body
 {
     width: calc(100% - 20px);
     margin-top: 20px;
-    height: 100px;
+    height: 300px;
     margin-bottom: 50px;
+    padding-right: 10px;
 }
 
 .nav-bar
 {
-    max-width: 400px;
     margin: 0 auto 60px auto;
     clear: both;
+    user-select: none;
 }
 
 .nav
@@ -125,6 +124,7 @@ body
     border-color: #000;
 }
 
+/* tablets */
 @media only screen and (max-width: 950px)
 {
     #stats
@@ -144,5 +144,19 @@ body
     #mapContainer div
     {
         box-shadow: inset #000 0px 15px 20px -20px;
+    }
+}
+
+/* mobile phones */
+@media only screen and (max-width: 450px)
+{
+    html
+    {
+        font-size: 10px;
+    }
+    
+    .stat-value
+    {
+        font-size: 3rem;
     }
 }

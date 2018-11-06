@@ -1,4 +1,7 @@
-
+/*
+ * Fetches the data from the server, 
+ * then populates the page with the new information
+ */
 function getData() {
     
     var query = window.location.search.substring(1);
@@ -21,6 +24,7 @@ function getData() {
             setDate(arr.date);
             calcSpeed(arr.speed);
             genMap(arr.waypoints);
+            graph(arr.speed);
         }
     };
 
@@ -179,5 +183,72 @@ function distanceCalc(lat1,lon1,lat2,lon2) {
  * Converts degrees to radiians (for distanceCalc())
  */
 function deg2rad(deg) {
+    
     return deg * (Math.PI/180);
+    
+}
+
+/*
+ * Generates the graph of speed
+ */
+function graph(speedData) {
+    
+    var canvas = document.getElementById("graph-canvas").getContext('2d');
+    Chart.defaults.global.defaultFontFamily = "Maple";
+    
+    var myChart = new Chart(canvas, {
+        type: 'line',
+        data: {
+            labels: ['20:12','12:67','56:56','45:67','20:12','12:67'],
+            datasets: [{
+                label: 'Speed During Trip',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: 'rgba(255, 255, 255, 0.35)',
+                borderColor: '#000',
+                pointBackgroundColor: '#000',
+                pointRadius: 4,
+                borderWidth: 3,
+                cubicInterpolationMode: 'default',
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    right: 8
+                }
+            },
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    display: false, //minimalism
+                    gridLines: {
+                        display: false
+                    },
+                    scaleLabel: {
+                        display: true,
+                        fontColor: '#000',
+                        labelString: 'Time'
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        fontColor: "#000"
+                    },
+                    gridLines: {
+                        display: false
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Speed (km/h)',
+                        fontColor: '#000'
+                    }
+                }],
+            }
+        }
+    });
+    
 }
