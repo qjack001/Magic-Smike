@@ -79,8 +79,8 @@ function calcSpeed(speeds)
     var sum = speeds.reduce((previous, current) => current += previous);
     var avg = sum / speeds.length;
     
-    document.getElementById('max-speed-value').innerHTML = max;
-    document.getElementById('avg-speed-value').innerHTML = avg;
+    document.getElementById('max-speed-value').innerHTML = Math.round(max);
+    document.getElementById('avg-speed-value').innerHTML = Math.round(avg);
 }
 
 /*
@@ -117,6 +117,7 @@ function genMap(arr) {
         }
     };
     
+    distance = distance.toPrecision(1);
     document.getElementById('distance').innerHTML = distance;
 
     var onResult = function(result) {
@@ -175,7 +176,7 @@ function distanceCalc(lat1,lon1,lat2,lon2) {
     Math.sin(dLon/2) * Math.sin(dLon/2);
     
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-    var d = R * c; // Distance in km
+    var d = R * c * 1000; // Distance in metres
     return d;
 }
 
