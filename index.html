@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 100%; height: 100%">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Magic Smike</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+        <script src="map.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div id="stats">
+            <h1><img src="logo.png" alt="Magic Smike" width="100" style="padding-bottom: 50px"></h1>
+            
+            <h2 id="date">November 22nd</h2>
+            <p class="distance">You traveled a total of<br><u><span id="distance">4563.34</span> km</u></p>
+            
+            <div>
+                <div id="max-speed" class="stat-box">
+                    <p id="max-speed-value" class="stat-value">--</p>
+                    <p>max speed (km/h)</p>
+                </div>
+                
+                <div id="avg-speed" class="stat-box">
+                    <p id="avg-speed-value" class="stat-value">--</p>
+                    <p>avg speed (km/h)</p>
+                </div>
+                
+                <div class="stat-box graph">
+                    <p>Graph, coming soon</p>
+                </div>
+            </div>
+            
+            <div class="nav-bar">
+                <div class="nav" id="prev"></div>
+                <div class="nav" id="next"></div>
+            </div>
+        </div>
+        
+        <div id="mapContainer"></div>
+        <script>
+            getData();
+        </script>
+    </body>
+</html>
