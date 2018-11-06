@@ -117,7 +117,7 @@ body
 
 .nav-text
 {
-    border: 2px solid transparent;
+    border-bottom: 4px solid transparent;
 }
 
 .nav-text:hover
