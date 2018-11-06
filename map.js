@@ -92,6 +92,7 @@ function genMap(arr) {
     
     var targetElement = document.getElementById('mapContainer');
     var defaultLayers = platform.createDefaultLayers();
+    var distance = 0.0;
 
 
     var map = new H.Map(
@@ -107,7 +108,12 @@ function genMap(arr) {
         
     for(i = 0; i < arr.length; i++) {
         routingParameters["waypoint" + i] = "geo!" + arr[i].lat + "," + arr[i].long;
+        if(i != 0) {
+            distance = distance + distanceCalc(arr[i-1].lat, arr[i-1].long, arr[i].lat, arr[i].long)
+        }
     };
+    
+    document.getElementById('distance').innerHTML = distance;
 
     var onResult = function(result) {
         
@@ -148,4 +154,30 @@ function genMap(arr) {
         map.getViewPort().resize();
         
     });
+}
+
+/*
+ * Calculates distance between 2 points on a globe
+ */
+function distanceCalc(lat1,lon1,lat2,lon2) {
+    
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1); 
+    
+    var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+    
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    return d;
+}
+
+/*
+ * Converts degrees to radiians (for distanceCalc())
+ */
+function deg2rad(deg) {
+    return deg * (Math.PI/180);
 }
