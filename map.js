@@ -203,7 +203,7 @@ function graph(speedData) {
             labels: ['20:12','12:67','56:56','45:67','20:12','12:67'],
             datasets: [{
                 label: 'Speed During Trip',
-                data: [12, 19, speedData[0], speedData[0], 2, 3],
+                data: [12, 19, speedData[0], speedData[1], 2, 3],
                 backgroundColor: 'rgba(255, 255, 255, 0.35)',
                 borderColor: '#000',
                 pointBackgroundColor: '#000',
