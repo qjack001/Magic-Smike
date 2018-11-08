@@ -73,8 +73,7 @@ function setDate(date) {
 /*
  * Calculates the max and average speeds, and adds the values to the dashboard
  */
-function calcSpeed(speeds)
-{
+function calcSpeed(speeds) {
     var max = Math.max(...speeds);
     var sum = speeds.reduce((previous, current) => current += previous);
     var avg = sum / speeds.length;
@@ -143,7 +142,22 @@ function genMap(arr) {
                 style: { strokeColor: '#000', lineWidth: 8 } // style of route line
             });
             
-            map.addObjects([routeLine]);
+// Create an icon object, an object with geographic coordinates and a marker:
+var icon = new H.map.Icon('./dot.png');
+            startPoint = route.waypoint[0].mappedPosition;
+            endPoint = route.waypoint[route.waypoint.length - 1].mappedPosition;
+
+            var start = new H.map.Marker({
+                lat: startPoint.latitude,
+                lng: startPoint.longitude
+            },{icon: icon});
+
+            var end = new H.map.Marker({
+                lat: endPoint.latitude,
+                lng: endPoint.longitude
+            },{icon: icon});
+            
+            map.addObjects([routeLine, start, end]);
             map.setViewBounds(routeLine.getBounds());
         }
     };
