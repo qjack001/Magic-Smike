@@ -77,9 +77,9 @@ function setDate(date) {
  * Calculates the max and average speeds, and adds the values to the dashboard
  */
 function calcSpeed(speeds) {
-    var speed = [];
+    var speed = new Array(speeds.length);
     for(i = 0; i < speeds.length; i++) {
-        speed.push(parseFloat(speeds[i].value));
+        speed[i] = (parseFloat(speeds[i].amount));
     }
     var max = Math.max(...speed);
     var sum = speed.reduce((previous, current) => current += previous);
@@ -217,12 +217,12 @@ function graph(speedData) {
     
     var canvas = document.getElementById("graph-canvas").getContext('2d');
     Chart.defaults.global.defaultFontFamily = "Maple";
-    var labelsIn = [];
-    var dataIn = [];
+    var labelsIn = new Array(speedData.length);
+    var dataIn = new Array(speedData.length);
     
     for(i = 0; i < speedData.length; i++) {
-        labelsIn.push(speedData[i].time);
-        dataIn.push(parseFloat(speedData[i].value));
+        labelsIn[i] = (speedData[i].time);
+        dataIn[i] = (parseFloat(speedData[i].amount));
     }
     
     var myChart = new Chart(canvas, {
