@@ -20,7 +20,7 @@ function getData() {
             var arr = JSON.parse(this.responseText);
             console.log(arr)
             
-            createNav(page);
+            createNav(page, arr.isFirst);
             setDate(arr.date);
             calcSpeed(arr.speed);
             genMap(arr.waypoints);
@@ -35,7 +35,7 @@ function getData() {
 /*
  * Creates the navigation bar based on the current page index
  */
-function createNav(page) {
+function createNav(page, isLast) {
     var pageNum = parseInt(page);
     var next = pageNum - 1;
     var prev = pageNum + 1;
@@ -44,9 +44,12 @@ function createNav(page) {
         document.getElementById("next").style.display = "none";
     }
     
+    if(isLast == "true") {
+        document.getElementById("prev").style.display = "none";
+    }
+    
     document.getElementById("next").innerHTML = "<a class='nav-link' href='./?=" + next + "'><span class='nav-text'>Next</span> →</a>";
     document.getElementById("prev").innerHTML = "<a class='nav-link' href='./?=" + prev + "'>← <span class='nav-text'>Prev</span></a>";
-    console.log(prev)
 }
 
 /* 
@@ -142,8 +145,8 @@ function genMap(arr) {
                 style: { strokeColor: '#000', lineWidth: 8 } // style of route line
             });
             
-// Create an icon object, an object with geographic coordinates and a marker:
-var icon = new H.map.Icon('./dot.png');
+            // Create an icon object, an object with geographic coordinates and a marker:
+            var icon = new H.map.Icon('./dot.png');
             startPoint = route.waypoint[0].mappedPosition;
             endPoint = route.waypoint[route.waypoint.length - 1].mappedPosition;
 
@@ -210,14 +213,21 @@ function graph(speedData) {
     
     var canvas = document.getElementById("graph-canvas").getContext('2d');
     Chart.defaults.global.defaultFontFamily = "Maple";
+    var labelsIn = [];
+    var dataIn = [];
+    
+    for(i = 0; i < speedData.length; i++) {
+        labelsIn.push(speedData[i].time);
+        dataIn.push(speedData[i].value);
+    }
     
     var myChart = new Chart(canvas, {
         type: 'line',
         data: {
-            labels: ['20:12','12:67','56:56','45:67','20:12','12:67'],
+            labels: labelsIn,
             datasets: [{
                 label: 'Speed During Trip',
-                data: [12, 19, speedData[0], speedData[1], 2, 3],
+                data: dataIn,
                 backgroundColor: 'rgba(255, 255, 255, 0.35)',
                 borderColor: '#000',
                 pointBackgroundColor: '#000',
