@@ -79,7 +79,7 @@ function setDate(date) {
 function calcSpeed(speeds) {
     var speed = [];
     for(i = 0; i < speeds.length; i++) {
-        speed.push(parseFloat(speedData[i].value));
+        speed.push(parseFloat(speeds[i].value));
     }
     var max = Math.max(...speed);
     var sum = speed.reduce((previous, current) => current += previous);
