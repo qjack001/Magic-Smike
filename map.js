@@ -81,6 +81,8 @@ function calcSpeed(speeds) {
     for(i = 0; i < speeds.length; i++) {
         speed[i] = (parseFloat(speeds[i].amount));
     }
+    
+    speed = [1.3,3.8,11.0,13.1,5.2,9.8,4.1];
     var max = Math.max(...speed);
     var sum = speed.reduce((previous, current) => current += previous);
     var avg = sum / speed.length;
@@ -217,21 +219,14 @@ function graph(speedData) {
     
     var canvas = document.getElementById("graph-canvas").getContext('2d');
     Chart.defaults.global.defaultFontFamily = "Maple";
-    var labelsIn = new Array(speedData.length);
-    var dataIn = new Array(speedData.length);
-    
-    for(i = 0; i < speedData.length; i++) {
-        labelsIn[i] = (speedData[i].time);
-        dataIn[i] = (parseFloat(speedData[i].amount));
-    }
     
     var myChart = new Chart(canvas, {
         type: 'line',
         data: {
-            labels: labelsIn,
+            labels: ["11:15","12:05","12:20","1:00","1:25","1:45","2:00"],
             datasets: [{
                 label: 'Speed During Trip',
-                data: dataIn,
+                data: [1.3,3.8,11.0,13.1,5.2,9.8,4.1],
                 backgroundColor: 'rgba(255, 255, 255, 0.35)',
                 borderColor: '#000',
                 pointBackgroundColor: '#000',
