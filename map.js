@@ -44,7 +44,7 @@ function createNav(page, isLast) {
         document.getElementById("next").style.display = "none";
     }
     
-    if(isLast == "true") {
+    if(isLast) {
         document.getElementById("prev").style.display = "none";
     }
     
