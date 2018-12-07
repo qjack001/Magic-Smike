@@ -15,5 +15,5 @@
 		{"time": "1:30", "amount": "6.2"},
 		{"time": "2:00", "amount": "3.2"}
 	],
-	"isFirst": "false"
+	"isFirst": false
 }
