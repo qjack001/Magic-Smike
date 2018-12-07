@@ -17,12 +17,11 @@ function getData() {
     // This website instead hosts an example of the server's data for archival purposes
     // var url = "https://analog-fastness-221121.appspot.com/" + page;
     var url = "https://qjack001.github.io/Magic-Smike/example/" + page + ".json";
-    console.log(url);
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var arr = JSON.parse(this.responseText);
-            console.log(arr)
+            //console.log(arr)
             
             createNav(page, arr.isFirst);
             setDate(arr.date);
@@ -50,7 +49,6 @@ function createNav(page, isLast) {
     
     if(isLast) {
         document.getElementById("prev").style.display = "none";
-        console.log("true");
     }
     
     document.getElementById("next").innerHTML = "<a class='nav-link' href='./?=" + next + "'><span class='nav-text'>Next</span> →</a>";
