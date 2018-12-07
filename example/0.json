@@ -13,7 +13,7 @@
 		{"time": "12:00", "amount": "13.1"},
 		{"time": "12:15", "amount": "5.2"},
 		{"time": "12:30", "amount": "9.8"},
-		{"time": "12:45", 'amount": "4.1"}
+		{"time": "12:45", "amount": "4.1"}
 	],
 	"isFirst": "true"
 }
