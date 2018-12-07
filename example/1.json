@@ -7,13 +7,13 @@
 	],
 	"speed":
 	[
-		{"time": "1:15", "amount": "11.4"},
-		{"time": "1:30", "amount": "13.5"},
-		{"time": "1:45", "amount": "11.6"},
-		{"time": "2:00", "amount": "13.1"},
-		{"time": "2:15", "amount": "4.5"},
-		{"time": "2:30", "amount": "2.8"},
-		{"time": "2:45", "amount": "3.1"}
+		{"time": "11:00", "amount": "5.2"},
+		{"time": "11:30", "amount": "8.3"},
+		{"time": "12:00", "amount": "13.6"},
+		{"time": "12:30", "amount": "7.3"},
+		{"time": "1:00", "amount": "7.8"},
+		{"time": "1:30", "amount": "6.2"},
+		{"time": "2:00", "amount": "3.2"}
 	],
 	"isFirst": "false"
 }
