@@ -50,6 +50,7 @@ function createNav(page, isLast) {
     
     if(isLast) {
         document.getElementById("prev").style.display = "none";
+        console.log("true");
     }
     
     document.getElementById("next").innerHTML = "<a class='nav-link' href='./?=" + next + "'><span class='nav-text'>Next</span> →</a>";
