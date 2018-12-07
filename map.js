@@ -17,6 +17,7 @@ function getData() {
     // This website instead hosts an example of the server's data for archival purposes
     // var url = "https://analog-fastness-221121.appspot.com/" + page;
     var url = "./example/" + page + ".json";
+    console.log(url);
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
