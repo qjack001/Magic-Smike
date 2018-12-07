@@ -13,7 +13,10 @@ function getData() {
     }
     
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://analog-fastness-221121.appspot.com/" + page;
+    // The following server is currently inactive due to the project's presentation being complete.
+    // This website instead hosts an example of the server's data for archival purposes
+    // var url = "https://analog-fastness-221121.appspot.com/" + page;
+    var url = "./example/" + page + ".json";
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
