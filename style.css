@@ -1,13 +1,25 @@
-@font-face
+@font-face 
 {
-    font-family: "Maple";
-    src: url("./Fonts/Maple Medium.otf");
+    font-family: 'Maple';
+    src: url('./Fonts/Maple-Medium.eot');
+    src: url('./Fonts/Maple-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./Fonts/Maple-Medium.woff2') format('woff2'),
+        url('./Fonts/Maple-Medium.woff') format('woff'),
+        url('./Fonts/Maple-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
 }
 
-@font-face
+@font-face 
 {
-    font-family: "Maple-bold";
-    src: url("./Fonts/Maple Black.otf");
+    font-family: 'Maple';
+    src: url('./Fonts/Maple-Black.eot');
+    src: url('./Fonts/Maple-Black.eot?#iefix') format('embedded-opentype'),
+        url('./Fonts/Maple-Black.woff2') format('woff2'),
+        url('./Fonts/Maple-Black.woff') format('woff'),
+        url('./Fonts/Maple-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
 }
 
 html
@@ -122,6 +134,15 @@ body
 .nav-text:hover
 {
     border-color: #000;
+}
+
+.sticker
+{
+    position: absolute;
+    height: 450px;
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,0.24));
+    filter: drop-shadow(0 3px 2px rgba(0,0,0,0.24));
+
 }
 
 /* tablets */
